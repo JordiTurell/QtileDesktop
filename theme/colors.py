@@ -1,11 +1,8 @@
 class Colores:
-    
-    colors = []
-    
+    color = []
     def __init__(self):
-        colors = []
-        colors.append({ 'gris': '#ff0000' })
-    
+            color = []
+            
     def Gris(self):
-        return self.colors[0].gris
+        return '#393939'
     

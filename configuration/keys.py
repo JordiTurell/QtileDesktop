@@ -55,4 +55,3 @@ class Teclado:
         return self.keys
     
 t = Teclado()
-print(t.createkeys())

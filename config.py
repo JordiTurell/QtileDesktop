@@ -25,14 +25,17 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Match, Screen
-
+from libqtile.config import Click, Drag, Group, Match, Screen, Key #la llibreria Key es treura cuan estigui tot a Keys.py
+from libqtile.lazy import lazy #lazy es treura cuan estigui tot a keys.py
 from libqtile.utils import guess_terminal
 from configuration.keys import Teclado
 from configuration.pantalla import Pantalla
+import configtheme
+from widgets.widgets import Widgets
 
 mod = "mod4"
 terminal = "kitty" #guess_terminal()
+theme = configtheme.ConfigTheme()
 
 keys = Teclado().createkeys()
 
@@ -63,7 +66,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=0, margin= 4),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -85,7 +88,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = Pantalla().Config()
+screens = Pantalla().Config(theme, Widgets())
 
 # Drag floating layouts.
 mouse = [
